@@ -2,11 +2,37 @@ app_name = "tender_management"
 app_title = "Tender Management"
 app_publisher = "Sujal Jethava"
 app_description = "Tender Management System for ERPNext v16"
-app_email = "admin@gmail.com	"
+app_email = "admin@gmail.com"
 app_license = "mit"
 
 # Apps
 # ------------------
+
+
+# app_include_js = "/assets/tender_management/js/tender_alerts.js"
+# app_include_js = "/assets/tender_management/js/emd_alerts.js"
+
+
+app_include_js = [
+    "/assets/tender_management/js/tender_alerts.js",
+    "/assets/tender_management/js/emd_global_alert.js"
+]
+
+fixtures = [
+    {
+        "dt": "Client Script",
+        "filters": [
+            ["module", "=", "Tender Management"]  # અથવા તમારા app નું module name
+        ]
+    },
+    {
+        "dt": "Server Script",
+        "filters": [
+            ["module", "=", "Tender Management"]  # અથવા તમારા app નું module name
+        ]
+    }
+]
+
 
 # required_apps = []
 
@@ -249,4 +275,3 @@ app_license = "mit"
 # ------------
 # List of apps whose translatable strings should be excluded from this app's translations.
 # ignore_translatable_strings_from = []
-

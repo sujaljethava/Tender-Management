@@ -1,0 +1,83 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "SDTND-.YYYY.-.####",
+ "creation": "2026-04-14 18:18:23.041771",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "tender_id",
+  "receive_date",
+  "sd_amount",
+  "column_break_nblj",
+  "issue_date",
+  "sd_attach"
+ ],
+ "fields": [
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "tender_id",
+   "fieldtype": "Link",
+   "label": "Tender ID",
+   "options": "Tender"
+  },
+  {
+   "fieldname": "column_break_nblj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "issue_date",
+   "fieldtype": "Datetime",
+   "label": "Issue Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "receive_date",
+   "fieldtype": "Datetime",
+   "label": "Receive Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sd_attach",
+   "fieldtype": "Attach",
+   "label": "SD Attach",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sd_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "SD Amount",
+   "reqd": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-04-16 09:26:25.862599",
+ "modified_by": "Administrator",
+ "module": "Tender Management",
+ "name": "Secure Deposite",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

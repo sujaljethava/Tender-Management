@@ -1,0 +1,21 @@
+[
+ {
+  "allow_guest": 0,
+  "api_method": null,
+  "cron_format": null,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Server Script",
+  "doctype_event": "Before Save",
+  "enable_rate_limit": 0,
+  "event_frequency": "All",
+  "modified": "2026-04-10 12:21:11.178093",
+  "module": "Tender Management",
+  "name": "Tender Validation",
+  "rate_limit_count": 5,
+  "rate_limit_seconds": 86400,
+  "reference_doctype": "Tender",
+  "script": "def before_save(doc, method):\r\n    if doc.status == \"In Progress\":\r\n        required = {\r\n            \"Tender ID\": doc.tender_id,\r\n            \"Product Name\": doc.title,\r\n            \"District\": doc.district,\r\n            \"Vanue\": doc.vanue,\r\n            \"Consignee Name\": doc.consignee_name,\r\n            \"Issue Date\": doc.issue_date,\r\n            \"Due Date\": doc.due_date,\r\n            \"Estimated Value\": doc.estimated_value,\r\n            \"Supplier Name\": doc.supplier_name,\r\n            \"EMD\": doc.emd,\r\n            \"GEM Product Link\": doc.gem_product_link,\r\n            \"Product Authorization No\": doc.product_authorization_no,\r\n        }\r\n        missing = [k for k, v in required.items() if not v or v == 0]\r\n        if missing:\r\n            frappe.throw(\r\n                f\"In Progress માટે આ fields ભરો: <b>{', '.join(missing)}</b>\"\r\n            )\r\n\r\n    if doc.status == \"Submitted\":\r\n        if not doc.tender_documents:\r\n            frappe.throw(\"Status Submitted કરતા પહેલા Tender Documents upload કરો.\")",
+  "script_type": "DocType Event"
+ }
+]

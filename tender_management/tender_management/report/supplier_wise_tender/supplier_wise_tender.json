@@ -1,0 +1,35 @@
+{
+ "add_total_row": 1,
+ "add_translate_data": 0,
+ "columns": [],
+ "creation": "2026-04-09 09:40:53.044121",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 1,
+ "is_standard": "No",
+ "letter_head": null,
+ "modified": "2026-04-10 14:47:58.334750",
+ "modified_by": "Administrator",
+ "module": "Tender Management",
+ "name": "Supplier Wise Tender",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "SELECT \r\n  supplier_name as \"Supplier\", \r\n  COUNT(name) as \"Total Tenders\",\r\n  SUM(estimated_value) as \"Estimated Value\"\r\nFROM `tabTender`\r\nGROUP BY supplier_name\r\nORDER BY COUNT(name) DESC",
+ "ref_doctype": "Tender",
+ "report_name": "Supplier Wise Tender",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "Tender Manager"
+  },
+  {
+   "role": "Finance Manager"
+  }
+ ],
+ "timeout": 0
+}

@@ -1,0 +1,81 @@
+{
+ "cards": [
+  {
+   "card": "Total Tender"
+  },
+  {
+   "card": "Draft Tender"
+  },
+  {
+   "card": "Qualified Tender"
+  },
+  {
+   "card": "DisQualified Tender"
+  },
+  {
+   "card": "InProgress Tender"
+  },
+  {
+   "card": "Submitted Tender"
+  },
+  {
+   "card": "Courier Sent"
+  },
+  {
+   "card": "EMD Received"
+  },
+  {
+   "card": "EMD Pending"
+  }
+ ],
+ "charts": [
+  {
+   "chart": "Estimated Value by Tender",
+   "width": "Half"
+  },
+  {
+   "chart": "Tender Type",
+   "width": "Half"
+  },
+  {
+   "chart": "Consignee Wise Tender",
+   "width": "Half"
+  },
+  {
+   "chart": "Supplier Wise Tender",
+   "width": "Half"
+  },
+  {
+   "chart": "Monthly Tender Count",
+   "width": "Full"
+  },
+  {
+   "chart": "Due Date Wise Tender (Upcoming)",
+   "width": "Full"
+  },
+  {
+   "chart": "Tender status distribution",
+   "width": "Half"
+  },
+  {
+   "chart": "Courier Status",
+   "width": "Half"
+  },
+  {
+   "chart": "Supplier Wise Tender-1",
+   "width": "Half"
+  }
+ ],
+ "creation": "2026-04-08 16:15:33.051084",
+ "dashboard_name": "Tender Dashboard",
+ "docstatus": 0,
+ "doctype": "Dashboard",
+ "idx": 1,
+ "is_default": 1,
+ "is_standard": 1,
+ "modified": "2026-04-14 15:30:24.479278",
+ "modified_by": "krushang@duallifeqaunt.com",
+ "module": "Tender Management",
+ "name": "Tender Dashboard",
+ "owner": "Administrator"
+}

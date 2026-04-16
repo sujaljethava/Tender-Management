@@ -1,0 +1,13 @@
+{
+  "doctype": "Page",
+  "module": "Tender Management",
+  "name": "tender-dashboard",
+  "page_name": "tender-dashboard",
+  "title": "Tender Dashboard",
+  "roles": [
+    {
+      "doctype": "Has Role",
+      "role": "System Manager"
+    }
+  ]
+}

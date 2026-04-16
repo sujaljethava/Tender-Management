@@ -1,0 +1,35 @@
+{
+ "chart_name": "Supplier Wise Tender-1",
+ "chart_type": "Report",
+ "creation": "2026-04-10 14:58:12.832427",
+ "currency": "INR",
+ "custom_options": "{\"x_field\": \"supplier\", \"chart_type\": \"Line\", \"y_axis_fields\": [{\"idx\": 1, \"__islocal\": true, \"y_field\": \"estimated_value\", \"color\": \"#761ACB\", \"name\": \"vbb7wm1n\"}], \"y_fields\": [\"estimated_value\"], \"colors\": [\"#B4CD29\"]}",
+ "docstatus": 0,
+ "doctype": "Dashboard Chart",
+ "filters_json": "{}",
+ "group_by_type": "Count",
+ "idx": 0,
+ "is_public": 0,
+ "is_standard": 1,
+ "modified": "2026-04-10 14:59:37.944322",
+ "modified_by": "Administrator",
+ "module": "Tender Management",
+ "name": "Supplier Wise Tender-1",
+ "number_of_groups": 0,
+ "owner": "Administrator",
+ "report_name": "Supplier Wise Tender",
+ "roles": [],
+ "show_values_over_chart": 0,
+ "time_interval": "Yearly",
+ "timeseries": 0,
+ "timespan": "Last Year",
+ "type": "Line",
+ "use_report_chart": 0,
+ "x_field": "supplier",
+ "y_axis": [
+  {
+   "color": "#761ACB",
+   "y_field": "estimated_value"
+  }
+ ]
+}

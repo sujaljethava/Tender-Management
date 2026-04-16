@@ -1,0 +1,13 @@
+{
+ "creation": "2026-04-09 09:39:09.857428",
+ "docstatus": 0,
+ "doctype": "Dashboard Chart Source",
+ "idx": 0,
+ "modified": "2026-04-09 09:39:09.857428",
+ "modified_by": "Administrator",
+ "module": "Tender Management",
+ "name": "Supplier Wise Tender",
+ "owner": "Administrator",
+ "source_name": "Supplier Wise Tender",
+ "timeseries": 0
+}
