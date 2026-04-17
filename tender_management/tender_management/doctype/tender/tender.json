@@ -62,7 +62,8 @@
   "column_break_mtbs",
   "disqualified_reason",
   "disqualified_status",
-  "tab_2_tab"
+  "tab_2_tab",
+  "sales_order"
  ],
  "fields": [
   {
@@ -307,7 +308,7 @@
   {
    "fieldname": "tab_2_tab",
    "fieldtype": "Tab Break",
-   "label": "Tab 2"
+   "label": "Connection Tab"
   },
   {
    "fieldname": "emd_issue_date",
@@ -408,13 +409,20 @@
    "fieldtype": "Currency",
    "label": "Profit Amount",
    "read_only": 1
+  },
+  {
+   "fieldname": "sales_order",
+   "fieldtype": "Link",
+   "label": "Sales Order",
+   "options": "Sales Order",
+   "read_only": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-04-16 17:29:44.637766",
+ "modified": "2026-04-17 11:44:58.557691",
  "modified_by": "Administrator",
  "module": "Tender Management",
  "name": "Tender",
