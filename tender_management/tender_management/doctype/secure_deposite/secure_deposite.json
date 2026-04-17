@@ -7,10 +7,10 @@
  "engine": "InnoDB",
  "field_order": [
   "tender_id",
-  "receive_date",
+  "sd_issue_date",
   "sd_amount",
   "column_break_nblj",
-  "issue_date",
+  "sd_return_date",
   "sd_attach"
  ],
  "fields": [
@@ -26,18 +26,6 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "issue_date",
-   "fieldtype": "Datetime",
-   "label": "Issue Date",
-   "reqd": 1
-  },
-  {
-   "fieldname": "receive_date",
-   "fieldtype": "Datetime",
-   "label": "Receive Date",
-   "reqd": 1
-  },
-  {
    "fieldname": "sd_attach",
    "fieldtype": "Attach",
    "label": "SD Attach",
@@ -49,12 +37,24 @@
    "in_list_view": 1,
    "label": "SD Amount",
    "reqd": 1
+  },
+  {
+   "fieldname": "sd_return_date",
+   "fieldtype": "Datetime",
+   "label": "SD Return Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sd_issue_date",
+   "fieldtype": "Datetime",
+   "label": "SD Issue Date",
+   "reqd": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-04-16 09:26:25.862599",
+ "modified": "2026-04-16 18:28:07.960722",
  "modified_by": "Administrator",
  "module": "Tender Management",
  "name": "Secure Deposite",

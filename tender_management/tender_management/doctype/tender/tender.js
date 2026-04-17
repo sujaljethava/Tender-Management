@@ -217,52 +217,146 @@
 
 
 
-// Copyright (c) 2026, Sujal Jethava and contributors
-// For license information, please see license.txt
+// // Copyright (c) 2026, Sujal Jethava and contributors
+// // For license information, please see license.txt
 
-frappe.ui.form.on("Tender", {
-    refresh: function(frm) {
-        calculate_extra_items_total(frm);
-    },
-    gst: function(frm) {
-        calculate_extra_items_total(frm);
-    }
-});
+// frappe.ui.form.on("Tender", {
+//     refresh: function(frm) {
+//         calculate_extra_items_total(frm);
+//     },
+//     gst: function(frm) {
+//         calculate_extra_items_total(frm);
+//     }
+// });
 
-// ─── Extra Items Child Table ────────────────────────────────────────
+// // ─── Extra Items Child Table ────────────────────────────────────────
+// frappe.ui.form.on('Extra Items', {
+//     item_price: function(frm, cdt, cdn) {
+//         calculate_extra_items_total(frm);
+//     },
+//     extra_items_remove: function(frm) {
+//         calculate_extra_items_total(frm);
+//     }
+// });
+
+// function calculate_extra_items_total(frm) {
+//     let gst_percent = parseFloat(frm.doc.gst || 0);
+//     let total_before_gst = 0;
+
+//     (frm.doc.extra_items || []).forEach(function(row) {
+//         total_before_gst += parseFloat(row.item_price || 0);
+//     });
+
+//     let gst_amount = total_before_gst * gst_percent / 100;
+//     let total_amount = total_before_gst + gst_amount;
+
+//     frm.set_value('total_amount', total_amount);
+
+//     // BOQ Items માં Base Rate auto-set
+//     (frm.doc.boq_items || []).forEach(function(row) {
+//         frappe.model.set_value(row.doctype, row.name, 'base_rate', total_amount);
+//     });
+
+//     frm.refresh_field('boq_items');
+// }
+
+// // ─── BOQ Items Child Table ──────────────────────────────────────────
+// frappe.ui.form.on('Tender BOQ Item', {
+//     item_price: function(frm, cdt, cdn) {
+//         calculate_boq_final_rate(frm, cdt, cdn);
+//     },
+//     base_rate: function(frm, cdt, cdn) {
+//         calculate_boq_final_rate(frm, cdt, cdn);
+//     },
+//     gst: function(frm, cdt, cdn) {
+//         calculate_boq_final_rate(frm, cdt, cdn);
+//     },
+//     qty: function(frm, cdt, cdn) {
+//         calculate_boq_final_rate(frm, cdt, cdn);
+//     }
+// });
+
+// function calculate_boq_final_rate(frm, cdt, cdn) {
+//     let row = locals[cdt][cdn];
+
+//     let item_price = parseFloat(row.item_price || 0);
+//     let base_rate  = parseFloat(row.base_rate  || 0);
+//     let gst        = parseFloat(row.gst        || 0);
+//     let qty        = parseFloat(row.qty        || 0);
+
+//     // Item Price + Base Rate
+//     let subtotal = item_price + base_rate;
+
+//     // GST user e enter karelo % apply karo
+//     let gst_amount = subtotal * gst / 100;
+
+//     // Final Rate = Subtotal + GST Amount
+//     let final_rate = subtotal + gst_amount;
+
+//     // Total = Final Rate × Qty
+//     let total = final_rate * qty;
+
+//     frappe.model.set_value(cdt, cdn, 'final_rate', flt(final_rate, 2));
+//     frappe.model.set_value(cdt, cdn, 'total', flt(total, 2));
+//     frm.refresh_field('boq_items');
+// }
+
+
+
+
+
+
+
+
+
+
+// ─── Extra Items Child Table ──────────────────────────────────────────
 frappe.ui.form.on('Extra Items', {
     item_price: function(frm, cdt, cdn) {
-        calculate_extra_items_total(frm);
+        calculate_total_amount(frm);
     },
     extra_items_remove: function(frm) {
-        calculate_extra_items_total(frm);
+        calculate_total_amount(frm);
     }
 });
 
-function calculate_extra_items_total(frm) {
-    let gst_percent = parseFloat(frm.doc.gst || 0);
-    let total_before_gst = 0;
+function calculate_total_amount(frm) {
+    let total_items = 0;
 
+    // Extra Items ni badhi item_price add karo
     (frm.doc.extra_items || []).forEach(function(row) {
-        total_before_gst += parseFloat(row.item_price || 0);
+        total_items += parseFloat(row.item_price || 0);
     });
 
-    let gst_amount = total_before_gst * gst_percent / 100;
-    let total_amount = total_before_gst + gst_amount;
+    let gst      = parseFloat(frm.doc.gst || 0);
+    let gst_amount = total_items * gst / 100;
+    let total_amount = total_items + gst_amount;
 
-    frm.set_value('total_amount', total_amount);
-
-    // BOQ Items માં Base Rate auto-set
-    (frm.doc.boq_items || []).forEach(function(row) {
-        frappe.model.set_value(row.doctype, row.name, 'base_rate', total_amount);
-    });
-
-    frm.refresh_field('boq_items');
+    frm.set_value('total_amount', flt(total_amount, 2));
 }
+
+// ─── GST field change (parent form) ───────────────────────────────────
+frappe.ui.form.on('Tender', {
+    gst: function(frm) {
+        calculate_total_amount(frm);
+    },
+    onload: function(frm) {
+        calculate_total_amount(frm);
+    },
+    refresh: function(frm) {
+        calculate_total_amount(frm);
+    }
+});
 
 // ─── BOQ Items Child Table ──────────────────────────────────────────
 frappe.ui.form.on('Tender BOQ Item', {
+    item_price: function(frm, cdt, cdn) {
+        calculate_boq_final_rate(frm, cdt, cdn);
+    },
     base_rate: function(frm, cdt, cdn) {
+        calculate_boq_final_rate(frm, cdt, cdn);
+    },
+    gst: function(frm, cdt, cdn) {
         calculate_boq_final_rate(frm, cdt, cdn);
     },
     qty: function(frm, cdt, cdn) {
@@ -273,16 +367,42 @@ frappe.ui.form.on('Tender BOQ Item', {
 function calculate_boq_final_rate(frm, cdt, cdn) {
     let row = locals[cdt][cdn];
 
-    let base_rate  = parseFloat(row.base_rate || 0);
-    let qty        = parseFloat(row.qty || 0);
+    let item_price = parseFloat(row.item_price || 0);
+    let base_rate  = parseFloat(row.base_rate  || 0);
+    let gst        = parseFloat(row.gst        || 0);
+    let qty        = parseFloat(row.qty        || 0);
 
-    // Final Rate = Base Rate + 5% GST  (qty થી affect નહીં)
-    let final_rate = base_rate + (base_rate * 5 / 100);
+    let subtotal   = item_price;
+    let price = item_price
+    let gst_amount = price * gst / 100;
+    let gstamount = gst_amount;
+    let final_rate = subtotal + gst_amount;
+    let total      = final_rate * qty;
 
-    // Total = Final Rate × Qty  ← નવું
-    let total = final_rate * qty;
+    frappe.model.set_value(cdt, cdn, 'final_rate', flt(final_rate, 2));
+    frappe.model.set_value(cdt, cdn, 'gst_amount', flt(gstamount, 2));
+    frappe.model.set_value(cdt, cdn, 'total', flt(total, 2));
+    frm.refresh_field('boq_items');
+}
 
-    frappe.model.set_value(cdt, cdn, 'final_rate', final_rate);
-    frappe.model.set_value(cdt, cdn, 'total', total);  // ← નવું
+
+function calculate_total_amount(frm) {
+    let total_items = 0;
+
+    (frm.doc.extra_items || []).forEach(function(row) {
+        total_items += parseFloat(row.item_price || 0);
+    });
+
+    let gst = parseFloat(frm.doc.gst || 0);
+    let gst_amount = total_items * gst / 100;
+    let total_amount = total_items + gst_amount;
+
+    frm.set_value('total_amount', flt(total_amount, 2));
+
+    // ✅ Total Amount → BOQ Items ના દરેક row ના base_rate માં set કરો
+    (frm.doc.boq_items || []).forEach(function(row) {
+        frappe.model.set_value(row.doctype, row.name, 'base_rate', flt(total_amount, 2));
+    });
+
     frm.refresh_field('boq_items');
 }

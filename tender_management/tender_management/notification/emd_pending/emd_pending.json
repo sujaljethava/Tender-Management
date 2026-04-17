@@ -1,0 +1,35 @@
+{
+ "attach_files": "",
+ "attach_print": 0,
+ "channel": "Email",
+ "condition": "doc.status == \"Disqualified\" and doc.emd_received == 0",
+ "condition_type": "Python",
+ "creation": "2026-04-14 15:40:06.896531",
+ "days_in_advance": 0,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "Tender",
+ "enabled": 1,
+ "event": "Save",
+ "idx": 0,
+ "is_standard": 1,
+ "message": "<h3>\u26a0\ufe0f EMD Return Reminder</h3>\r\n<p><b>Tender ID:</b> {{ doc.tender_id }}</p>\r\n<p><b>Ref No:</b> {{ doc.name }}</p>\r\n<p><b>Product Name:</b> {{ doc.title }}</p>\r\n<p><b>Supplier:</b> {{ doc.supplier_name }}</p>\r\n<p><b>EMD Amount:</b> \u20b9{{ doc.emd }}</p>\r\n<p><b>EMD No:</b> {{ doc.emd_no }}</p>\r\n<p style=\"color:red;\">\r\nPlease return the EMD amount at the earliest.\r\n</p>",
+ "message_type": "Markdown",
+ "minutes_offset": 0,
+ "modified": "2026-04-16 10:01:40.617443",
+ "modified_by": "Administrator",
+ "module": "Tender Management",
+ "name": "EMD Pending",
+ "owner": "krushang@duallifeqaunt.com",
+ "recipients": [
+  {
+   "cc": "tendersupport@duallife.in"
+  }
+ ],
+ "send_system_notification": 0,
+ "send_to_all_assignees": 0,
+ "sender": "Sujal Jethava",
+ "sender_email": "sujaljethava14@gmail.com",
+ "set_property_after_alert": "emd",
+ "subject": "EMD Return Pending - {{ doc.name }}"
+}

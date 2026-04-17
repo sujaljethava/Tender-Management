@@ -1,0 +1,39 @@
+{
+ "attach_files": "",
+ "attach_print": 0,
+ "channel": "Email",
+ "condition": "",
+ "condition_type": "Python",
+ "creation": "2026-04-07 16:09:25.294954",
+ "date_changed": "due_date",
+ "days_in_advance": 1,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "Tender",
+ "enabled": 1,
+ "event": "Days Before",
+ "idx": 0,
+ "is_standard": 1,
+ "message": "<h3>\u26a0\ufe0f Tender Reminder</h3>\r\n\r\n<p><b>Tender ID:</b> {{ doc.name }}</p>\r\n<p><b>Product Name:</b> {{ doc.product_name }}</p>\r\n<p><b>Due Date:</b> {{ doc.due_date }}</p>\r\n<p><b>Supplier:</b> {{ doc.supplier_name }}</p>\r\n<p><b>EMD:</b> \u20b9{{ doc.emd }}</p>\r\n\r\n<p style=\"color:red;\">\r\nPlease ensure all required documents are submitted before the deadline.\r\n</p>",
+ "message_type": "Markdown",
+ "minutes_offset": 0,
+ "modified": "2026-04-16 10:01:47.544997",
+ "modified_by": "Administrator",
+ "module": "Tender Management",
+ "name": "Tender Mail",
+ "owner": "Administrator",
+ "recipients": [
+  {
+   "cc": "tendersupport@duallife.in\n",
+   "condition": "frappe.utils.date_diff(doc.due_date, frappe.utils.nowdate()) == 1",
+   "receiver_by_document_field": "owner",
+   "receiver_by_role": ""
+  }
+ ],
+ "send_system_notification": 0,
+ "send_to_all_assignees": 1,
+ "sender": "Sujal Jethava",
+ "sender_email": "sujaljethava14@gmail.com",
+ "set_property_after_alert": "due_date",
+ "subject": "Tender Due Tomorrow: {{ doc.name }}"
+}

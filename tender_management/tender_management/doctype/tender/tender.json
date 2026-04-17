@@ -1,383 +1,445 @@
 {
-    "actions": [],
-    "autoname": "TND-.YYYY.-.####",
-    "creation": "2026-04-03 09:31:49.729608",
-    "doctype": "DocType",
-    "engine": "InnoDB",
-    "field_order": [
-        "section_break_dloz",
-        "naming_series",
-        "issue_date",
-        "title",
-        "consignee_name",
-        "emd",
-        "emd_issue_date",
-        "emd_no",
-        "emd_received",
-        "emd_received_date",
-        "column_break_bist",
-        "tender_id",
-        "due_date",
-        "district",
-        "email",
-        "phone_number",
-        "gem_product_link",
-        "participate_in",
-        "product_authorization_no",
-        "bid_acknowledgement",
-        "amended_from",
-        "column_break_cnhz",
-        "tender_type",
-        "online_submission_date",
-        "vanue",
-        "supplier_name",
-        "supplier_email_id",
-        "supplier_contact",
-        "tender_fee",
-        "estimated_value",
-        "status",
-        "extra_items_section",
-        "extra_items",
-        "column_break_fehh",
-        "gst",
-        "total_amount",
-        "section_break_guxb",
-        "boq_items",
-        "emailphone_section",
-        "emailphone_no",
-        "section_break_uegi",
-        "tender_documents",
-        "status_section_section",
-        "qualified_status",
-        "purchase_order_attach",
-        "column_break_mtbs",
-        "disqualified_reason",
-        "disqualified_status",
-        "tab_2_tab"
-    ],
-    "fields": [
-        {
-            "fieldname": "section_break_dloz",
-            "fieldtype": "Section Break"
-        },
-        {
-            "fieldname": "amended_from",
-            "fieldtype": "Link",
-            "label": "Amended From",
-            "no_copy": 1,
-            "options": "Tender",
-            "print_hide": 1,
-            "read_only": 1,
-            "search_index": 1
-        },
-        {
-            "fieldname": "naming_series",
-            "fieldtype": "Select",
-            "label": "Series",
-            "options": "TND-.YYYY.-.####"
-        },
-        {
-            "fieldname": "tender_id",
-            "fieldtype": "Data",
-            "in_list_view": 1,
-            "label": "Tender ID",
-            "reqd": 1
-        },
-        {
-            "fieldname": "tender_type",
-            "fieldtype": "Select",
-            "label": "Tender Type",
-            "options": "Government\nPrivate",
-            "reqd": 1
-        },
-        {
-            "fieldname": "issue_date",
-            "fieldtype": "Datetime",
-            "label": "Issue Date",
-            "reqd": 1
-        },
-        {
-            "fieldname": "due_date",
-            "fieldtype": "Datetime",
-            "label": "Due Date",
-            "reqd": 1
-        },
-        {
-            "fieldname": "estimated_value",
-            "fieldtype": "Currency",
-            "label": "Estimated Value",
-            "non_negative": 1,
-            "reqd": 1
-        },
-        {
-            "fieldname": "status",
-            "fieldtype": "Select",
-            "label": "Status",
-            "options": "\nDraft\nIn Progress\nSubmitted\nQualified\nDisqualified"
-        },
-        {
-            "fieldname": "boq_items",
-            "fieldtype": "Table",
-            "label": "BOQ Items",
-            "options": "Tender BOQ Item"
-        },
-        {
-            "fieldname": "column_break_bist",
-            "fieldtype": "Column Break"
-        },
-        {
-            "fieldname": "section_break_guxb",
-            "fieldtype": "Section Break",
-            "label": "BOQ Items"
-        },
-        {
-            "fieldname": "district",
-            "fieldtype": "Data",
-            "in_list_view": 1,
-            "in_standard_filter": 1,
-            "label": "District",
-            "reqd": 1
-        },
-        {
-            "fieldname": "vanue",
-            "fieldtype": "Data",
-            "label": "Vanue",
-            "reqd": 1
-        },
-        {
-            "default": "0",
-            "fieldname": "participate_in",
-            "fieldtype": "Check",
-            "label": "Participate In"
-        },
-        {
-            "fieldname": "online_submission_date",
-            "fieldtype": "Datetime",
-            "label": "Online Submission Date"
-        },
-        {
-            "fieldname": "supplier_name",
-            "fieldtype": "Link",
-            "in_list_view": 1,
-            "label": "Supplier Name",
-            "options": "Supplier",
-            "reqd": 1
-        },
-        {
-            "fieldname": "consignee_name",
-            "fieldtype": "Data",
-            "in_list_view": 1,
-            "label": "Consignee Name",
-            "reqd": 1
-        },
-        {
-            "fieldname": "tender_fee",
-            "fieldtype": "Currency",
-            "label": "Tender Fee",
-            "non_negative": 1,
-            "reqd": 1
-        },
-        {
-            "fieldname": "emd",
-            "fieldtype": "Currency",
-            "label": "EMD",
-            "reqd": 1
-        },
-        {
-            "fieldname": "section_break_uegi",
-            "fieldtype": "Section Break",
-            "label": "Tender Documents"
-        },
-        {
-            "fieldname": "tender_documents",
-            "fieldtype": "Table",
-            "label": "Tender Documents",
-            "options": "Tender Document"
-        },
-        {
-            "fieldname": "gem_product_link",
-            "fieldtype": "Data",
-            "label": "Gem Product Link"
-        },
-        {
-            "fieldname": "product_authorization_no",
-            "fieldtype": "Data",
-            "label": "Product Authorization No"
-        },
-        {
-            "fieldname": "bid_acknowledgement",
-            "fieldtype": "Attach",
-            "label": "Bid Acknowledgement"
-        },
-        {
-            "depends_on": "eval:doc.status==\"Disqualified\"",
-            "fieldname": "disqualified_reason",
-            "fieldtype": "Small Text",
-            "label": "Disqualified Reason"
-        },
-        {
-            "fieldname": "emd_no",
-            "fieldtype": "Data",
-            "in_standard_filter": 1,
-            "label": "EMD No"
-        },
-        {
-            "depends_on": "eval:doc.status==\"Disqualified\"",
-            "fieldname": "disqualified_status",
-            "fieldtype": "Select",
-            "label": "Disqualified Status ",
-            "options": "\nTechnical\nFinancial"
-        },
-        {
-            "depends_on": "eval:doc.status==\"Qualified\"",
-            "fieldname": "qualified_status",
-            "fieldtype": "Select",
-            "label": "Qualified Status",
-            "options": "\nTechnical\nFinancial\nPurchase Order"
-        },
-        {
-            "depends_on": "eval:doc.qualified_status==\"Purchase Order\"",
-            "fieldname": "purchase_order_attach",
-            "fieldtype": "Attach",
-            "label": "Purchase Order Attach"
-        },
-        {
-            "fieldname": "status_section_section",
-            "fieldtype": "Section Break",
-            "label": "Status Section "
-        },
-        {
-            "fieldname": "column_break_mtbs",
-            "fieldtype": "Column Break"
-        },
-        {
-            "fieldname": "column_break_cnhz",
-            "fieldtype": "Column Break"
-        },
-        {
-            "fieldname": "title",
-            "fieldtype": "Data",
-            "in_standard_filter": 1,
-            "label": "Product Name",
-            "reqd": 1
-        },
-        {
-            "default": "0",
-            "depends_on": "eval:doc.status==\"Disqualified\"",
-            "fieldname": "emd_received",
-            "fieldtype": "Check",
-            "label": "EMD Received "
-        },
-        {
-            "fieldname": "email",
-            "fieldtype": "Data",
-            "hidden": 1,
-            "label": "Email "
-        },
-        {
-            "fieldname": "phone_number",
-            "fieldtype": "Data",
-            "hidden": 1,
-            "label": "Phone Number"
-        },
-        {
-            "fieldname": "emailphone_section",
-            "fieldtype": "Section Break",
-            "label": "Email/Phone"
-        },
-        {
-            "fieldname": "emailphone_no",
-            "fieldtype": "Table",
-            "label": "Email/Phone No",
-            "options": "Email Phone No"
-        },
-        {
-            "fieldname": "tab_2_tab",
-            "fieldtype": "Tab Break",
-            "label": "Tab 2"
-        },
-        {
-            "fieldname": "emd_issue_date",
-            "fieldtype": "Datetime",
-            "label": "EMD Issue Date"
-        },
-        {
-            "depends_on": "eval:doc.status==\"Disqualified\"",
-            "fieldname": "emd_received_date",
-            "fieldtype": "Datetime",
-            "label": "EMD Received Date"
-        },
-        {
-            "fetch_from": "supplier_name.supplier_primary_contact",
-            "fieldname": "supplier_contact",
-            "fieldtype": "Link",
-            "label": "Supplier Contact",
-            "options": "Contact"
-        },
-        {
-            "fetch_from": "supplier_name.email_id",
-            "fieldname": "supplier_email_id",
-            "fieldtype": "Data",
-            "label": "Supplier Email ID",
-            "options": "Address"
-        },
-        {
-            "fieldname": "extra_items_section",
-            "fieldtype": "Section Break",
-            "label": "Extra Items"
-        },
-        {
-            "fieldname": "extra_items",
-            "fieldtype": "Table",
-            "label": "Extra Items",
-            "options": "Extra Items"
-        },
-        {
-            "fieldname": "gst",
-            "fieldtype": "Currency",
-            "label": "GST(%)"
-        },
-        {
-            "fieldname": "total_amount",
-            "fieldtype": "Currency",
-            "label": "Total Amount",
-            "read_only": 1
-        },
-        {
-            "fieldname": "column_break_fehh",
-            "fieldtype": "Column Break"
-        }
-    ],
-    "grid_page_length": 50,
-    "index_web_pages_for_search": 1,
-    "is_submittable": 1,
-    "links": [],
-    "modified": "2026-04-16 09:24:30.041604",
-    "modified_by": "Administrator",
-    "module": "Tender Management",
-    "name": "Tender",
-    "naming_rule": "By \"Naming Series\" field",
-    "owner": "Administrator",
-    "permissions": [
-        {
-            "create": 1,
-            "delete": 1,
-            "email": 1,
-            "export": 1,
-            "print": 1,
-            "read": 1,
-            "report": 1,
-            "role": "System Manager",
-            "share": 1,
-            "submit": 1,
-            "write": 1
-        }
-    ],
-    "row_format": "Dynamic",
-    "rows_threshold_for_grid_search": 20,
-    "show_title_field_in_link": 1,
-    "sort_field": "creation",
-    "sort_order": "DESC",
-    "states": [],
-    "title_field": "tender_id"
+ "actions": [],
+ "autoname": "TND-.YYYY.-.####",
+ "creation": "2026-04-03 09:31:49.729608",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_dloz",
+  "naming_series",
+  "issue_date",
+  "consignee_name",
+  "district",
+  "vanue",
+  "emd",
+  "emd_issue_date",
+  "emd_no",
+  "emd_received",
+  "emd_received_date",
+  "column_break_bist",
+  "tender_id",
+  "due_date",
+  "title",
+  "gem_product_link",
+  "email",
+  "phone_number",
+  "participate_in",
+  "product_authorization_no",
+  "bid_acknowledgement",
+  "amended_from",
+  "column_break_cnhz",
+  "tender_type",
+  "online_submission_date",
+  "supplier_name",
+  "supplier_email_id",
+  "supplier_contact",
+  "tender_fee",
+  "estimated_value",
+  "status",
+  "extra_items_section",
+  "extra_items",
+  "column_break_fehh",
+  "gst",
+  "total_amount",
+  "section_break_guxb",
+  "boq_items",
+  "total_section",
+  "total_item_price",
+  "profit",
+  "column_break_xcdp",
+  "total_gst_amount",
+  "profit_amount",
+  "column_break_dwvt",
+  "total",
+  "final_total",
+  "emailphone_section",
+  "emailphone_no",
+  "section_break_uegi",
+  "tender_documents",
+  "status_section_section",
+  "qualified_status",
+  "purchase_order_attach",
+  "column_break_mtbs",
+  "disqualified_reason",
+  "disqualified_status",
+  "tab_2_tab"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_dloz",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Tender",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "TND-.YYYY.-.####"
+  },
+  {
+   "fieldname": "tender_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Tender ID",
+   "reqd": 1
+  },
+  {
+   "fieldname": "tender_type",
+   "fieldtype": "Select",
+   "label": "Tender Type",
+   "options": "Government\nPrivate",
+   "reqd": 1
+  },
+  {
+   "fieldname": "issue_date",
+   "fieldtype": "Datetime",
+   "label": "Issue Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "due_date",
+   "fieldtype": "Datetime",
+   "label": "Due Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "estimated_value",
+   "fieldtype": "Currency",
+   "label": "Estimated Value",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "\nDraft\nIn Progress\nSubmitted\nQualified\nDisqualified"
+  },
+  {
+   "fieldname": "boq_items",
+   "fieldtype": "Table",
+   "label": "BOQ Items",
+   "options": "Tender BOQ Item"
+  },
+  {
+   "fieldname": "column_break_bist",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_guxb",
+   "fieldtype": "Section Break",
+   "label": "BOQ Items"
+  },
+  {
+   "fetch_from": "consignee_name.custom_state",
+   "fieldname": "district",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "District",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "consignee_name.customer_primary_address",
+   "fieldname": "vanue",
+   "fieldtype": "Link",
+   "label": "Vanue",
+   "options": "Address",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "participate_in",
+   "fieldtype": "Check",
+   "label": "Participate In"
+  },
+  {
+   "fieldname": "online_submission_date",
+   "fieldtype": "Datetime",
+   "label": "Online Submission Date"
+  },
+  {
+   "fieldname": "supplier_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Supplier Name",
+   "options": "Supplier",
+   "reqd": 1
+  },
+  {
+   "fieldname": "consignee_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Consignee Name",
+   "options": "Customer",
+   "reqd": 1
+  },
+  {
+   "fieldname": "tender_fee",
+   "fieldtype": "Currency",
+   "label": "Tender Fee",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "emd",
+   "fieldtype": "Currency",
+   "label": "EMD",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_uegi",
+   "fieldtype": "Section Break",
+   "label": "Tender Documents"
+  },
+  {
+   "fieldname": "tender_documents",
+   "fieldtype": "Table",
+   "label": "Tender Documents",
+   "options": "Tender Document"
+  },
+  {
+   "fieldname": "gem_product_link",
+   "fieldtype": "Data",
+   "label": "Gem Product Link"
+  },
+  {
+   "fieldname": "product_authorization_no",
+   "fieldtype": "Data",
+   "label": "Product Authorization No"
+  },
+  {
+   "fieldname": "bid_acknowledgement",
+   "fieldtype": "Attach",
+   "label": "Bid Acknowledgement"
+  },
+  {
+   "depends_on": "eval:doc.status==\"Disqualified\"",
+   "fieldname": "disqualified_reason",
+   "fieldtype": "Small Text",
+   "label": "Disqualified Reason"
+  },
+  {
+   "fieldname": "emd_no",
+   "fieldtype": "Data",
+   "in_standard_filter": 1,
+   "label": "EMD No"
+  },
+  {
+   "depends_on": "eval:doc.status==\"Disqualified\"",
+   "fieldname": "disqualified_status",
+   "fieldtype": "Select",
+   "label": "Disqualified Status ",
+   "options": "\nTechnical\nFinancial"
+  },
+  {
+   "depends_on": "eval:doc.status==\"Qualified\"",
+   "fieldname": "qualified_status",
+   "fieldtype": "Select",
+   "label": "Qualified Status",
+   "options": "\nTechnical\nFinancial\nPurchase Order"
+  },
+  {
+   "depends_on": "eval:doc.qualified_status==\"Purchase Order\"",
+   "fieldname": "purchase_order_attach",
+   "fieldtype": "Attach",
+   "label": "Purchase Order Attach"
+  },
+  {
+   "fieldname": "status_section_section",
+   "fieldtype": "Section Break",
+   "label": "Status Section "
+  },
+  {
+   "fieldname": "column_break_mtbs",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_cnhz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "in_standard_filter": 1,
+   "label": "Product Name",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:doc.status==\"Disqualified\"",
+   "fieldname": "emd_received",
+   "fieldtype": "Check",
+   "label": "EMD Received "
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Email "
+  },
+  {
+   "fieldname": "phone_number",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Phone Number"
+  },
+  {
+   "fieldname": "emailphone_section",
+   "fieldtype": "Section Break",
+   "label": "Email/Phone"
+  },
+  {
+   "fieldname": "emailphone_no",
+   "fieldtype": "Table",
+   "label": "Email/Phone No",
+   "options": "Email Phone No"
+  },
+  {
+   "fieldname": "tab_2_tab",
+   "fieldtype": "Tab Break",
+   "label": "Tab 2"
+  },
+  {
+   "fieldname": "emd_issue_date",
+   "fieldtype": "Datetime",
+   "label": "EMD Issue Date"
+  },
+  {
+   "depends_on": "eval:doc.status==\"Disqualified\"",
+   "fieldname": "emd_received_date",
+   "fieldtype": "Datetime",
+   "label": "EMD Received Date"
+  },
+  {
+   "fetch_from": "supplier_name.mobile_no",
+   "fieldname": "supplier_contact",
+   "fieldtype": "Data",
+   "label": "Supplier Contact",
+   "options": "Contact"
+  },
+  {
+   "fetch_from": "supplier_name.email_id",
+   "fieldname": "supplier_email_id",
+   "fieldtype": "Data",
+   "label": "Supplier Email ID",
+   "options": "Address"
+  },
+  {
+   "fieldname": "extra_items_section",
+   "fieldtype": "Section Break",
+   "hidden": 1,
+   "label": "Extra Items"
+  },
+  {
+   "fieldname": "extra_items",
+   "fieldtype": "Table",
+   "label": "Extra Items",
+   "options": "Extra Items"
+  },
+  {
+   "fieldname": "gst",
+   "fieldtype": "Currency",
+   "label": "GST(%)"
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "label": "Total Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_fehh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_section",
+   "fieldtype": "Section Break",
+   "label": "Total "
+  },
+  {
+   "fieldname": "total_item_price",
+   "fieldtype": "Currency",
+   "label": "Total Item Price",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_xcdp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_gst_amount",
+   "fieldtype": "Currency",
+   "label": "Total GST Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_dwvt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total",
+   "fieldtype": "Currency",
+   "label": "Total",
+   "read_only": 1
+  },
+  {
+   "fieldname": "profit",
+   "fieldtype": "Percent",
+   "label": "Profit(%)"
+  },
+  {
+   "fieldname": "final_total",
+   "fieldtype": "Currency",
+   "label": "Final Total",
+   "read_only": 1
+  },
+  {
+   "fieldname": "profit_amount",
+   "fieldtype": "Currency",
+   "label": "Profit Amount",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-04-16 17:29:44.637766",
+ "modified_by": "Administrator",
+ "module": "Tender Management",
+ "name": "Tender",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "show_title_field_in_link": 1,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "tender_id"
 }
